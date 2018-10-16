@@ -65,6 +65,14 @@
             <div class="close" @click="pageShow=1"></div>
             <div class="edit" @click="pageShow=3"></div>
             <div class="delete"></div>
+
+            <draggable element="ul" :list="dayList" :options="{animation:100,forceFallback:true, scroll: true,scrollSensitivity:100}">
+                <li v-for="(day,index) in dayList" @end="onEnd(day,index)">
+                   第{{translateNumber(index+1)}}天
+                    {{day.text}}
+
+                </li>
+            </draggable>
         </div>
         <!--行程编辑-->
         <div class="my-scheduling" v-if="pageShow==3">
@@ -96,10 +104,14 @@
             <div class="save" @click="pageShow=3"></div>
         </div>
 
+        <div class="personal"></div>
+
     </div>
 
     <script src="../js/lib/vue-2.26.min.js"></script>
     <script src="../js/lib/jquery.min.v2.1.4.js"></script>
+    <script src="../js/lib/drag/sortable.min.js"></script>
+    <script src="../js/lib/drag/vuedraggable.min.js"></script>
     <script src="../js/index.js"></script>
 </body>
 
