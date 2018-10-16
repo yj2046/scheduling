@@ -8,7 +8,16 @@ html{
   height:100%;
   overflow-x: hidden;
 }
+.clearfix{
+    zoom:1;
+}
+.clearfix:after{
+  content:'';
+  display:block;
+  clear:both;
+}
 body{
+  background-color: rgba(248,248,248,0.80);
   width:100%;
   height:100%;
   overflow-x: hidden;
@@ -26,9 +35,8 @@ body{
     position: relative;
     .enter{
       position: absolute;
-      top:torem(300);
-      left:torem(50);
-      background: red;
+      top:torem(190);
+      left:torem(30);
       width:torem(100);
       height:torem(100);
     }
@@ -54,13 +62,13 @@ body{
     }
     .destation-selected {
       position: absolute;
-      top: torem(56);
+      top: torem(66);
       left: 0;
       width: 100%;
     }
     .time-selected {
       position: absolute;
-      top: torem(108);
+      top: torem(118);
       left: 0;
       width: 100%;
     }
@@ -86,22 +94,32 @@ body{
       height:torem(174);
       padding-left:torem(15);
       padding-top:torem(5);
+      background: #fff;
+      color: #7E8DA6;
+      font-size: torem(12);
       .play-item div{
         float: left;
         width:torem(79);
+        line-height: torem(36);
         height:torem(36);
         margin-right:torem(10);
         margin-bottom: torem(10);
-
+        text-align: center;
+        border:1px solid #C5CAD4 ;
       }
       div.like{
         background: url("../img/right.png");
         background-size: 100%;
       }
       div.unlike{
+        font-size: torem(12);
+        color: #F5594E;
+        line-height: torem(36);
+        text-align: center;
         background: url("../img/error.png");
         background-size: 100%;
       }
+
 
     }
 
@@ -167,11 +185,101 @@ body{
     height:torem(18);
   }
   .made {
-    width: 100%;
-    height: 100%;
-    background: url("../img/page-1-5.png") 100% center;
-    background-size: 100% 100%;
     position: relative;
+    .journey-head {
+      width: 100%;
+      height: torem(64);
+      background-image: url("../img/journey-head.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    .journey-input {
+      height: torem(55);
+      background-color: #fff;
+      padding: 0 torem(15);
+      span {
+        float: left;
+        line-height: torem(55);
+        font-size: torem(16);
+        color: #111E36;
+      }
+      input {
+        float: left;
+        margin-left: torem(30);
+        height: torem(53);
+        line-height: torem(53);
+        width: torem(245);
+        border: none;
+        outline: none;
+        font-size: torem(16);
+        color: #111E36;
+      }
+    }
+    .journey-list {
+      margin-top: torem(15);
+      li {
+        width: torem(345);
+        height: torem(68);
+        box-shadow: 0 4px 6px 0 rgba(27,27,27,0.05);
+        border-radius: 2px;
+        background-color: #fff;
+        margin: 0 auto torem(15) auto;
+        box-sizing: border-box;
+        padding-left: torem(48);
+        padding-top: torem(12);
+        padding-bottom: torem(12);
+        background-image: url("../img/drag-icon.png");
+        background-repeat: no-repeat;
+        background-size: torem(18) torem(18);
+        background-position: torem(15) center;
+        .journey-item-detail {
+          float: left;
+          width: torem(178);
+          & > div:first-of-type {
+            font-size: torem(17);
+            color: #111E36;
+          }
+          & > div:last-of-type {
+            font-size: torem(12);
+            color: #7E8DA6;
+            margin-top: torem(3);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+        .journey-item-edit {
+          float: left;
+          width: torem(18);
+          height: 100%;
+          margin-left: torem(30);
+          background-image: url("../img/edit-icon.png");
+          background-repeat: no-repeat;
+          background-size: torem(18) torem(18);
+          background-position: center center;
+        }
+        .journey-item-delete {
+          float: left;
+          width: torem(18);
+          height: 100%;
+          margin-left: torem(30);
+          background-image: url("../img/delete-icon.png");
+          background-repeat: no-repeat;
+          background-size: torem(18) torem(18);
+          background-position: center center;
+        }
+      }
+    }
+    .journey-foot {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: torem(50);
+      background-image: url("../img/journey-footer.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
     .edit{
       position: absolute;
       top:torem(154);
@@ -185,13 +293,6 @@ body{
       right:torem(30);
       width:torem(18);
       height:torem(18);
-    }
-    .finish-all{
-      position: absolute;
-      bottom:0;
-      left:0;
-      width:100%;
-      height:torem(50);
     }
   }
   .my-scheduling{
@@ -307,5 +408,12 @@ body{
     background: url("../img/finish.png") 100% center;
     background-size: 100% 100%;
     position: relative;
+  }
+  .finish-all{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:torem(50);
   }
 }

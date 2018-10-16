@@ -373,7 +373,16 @@ html {
   height: 100%;
   overflow-x: hidden; }
 
+.clearfix {
+  zoom: 1; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both; }
+
 body {
+  background-color: rgba(248, 248, 248, 0.8);
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -390,9 +399,8 @@ body {
     position: relative; }
     body .home-page .enter {
       position: absolute;
-      top: 8rem;
-      left: 1.3333333333rem;
-      background: red;
+      top: 5.0666666667rem;
+      left: 0.8rem;
       width: 2.6666666667rem;
       height: 2.6666666667rem; }
   body .scheduling .next-btn {
@@ -414,12 +422,12 @@ body {
       height: 0.5333333333rem; }
     body .scheduling .destation-selected, body .scheduling-end .destation-selected {
       position: absolute;
-      top: 1.4933333333rem;
+      top: 1.76rem;
       left: 0;
       width: 100%; }
     body .scheduling .time-selected, body .scheduling-end .time-selected {
       position: absolute;
-      top: 2.88rem;
+      top: 3.1466666667rem;
       left: 0;
       width: 100%; }
     body .scheduling .time-btn, body .scheduling-end .time-btn {
@@ -440,17 +448,27 @@ body {
       width: 100%;
       height: 4.64rem;
       padding-left: 0.4rem;
-      padding-top: 0.1333333333rem; }
+      padding-top: 0.1333333333rem;
+      background: #fff;
+      color: #7E8DA6;
+      font-size: 0.32rem; }
       body .scheduling .play .play-item div, body .scheduling-end .play .play-item div {
         float: left;
         width: 2.1066666667rem;
+        line-height: 0.96rem;
         height: 0.96rem;
         margin-right: 0.2666666667rem;
-        margin-bottom: 0.2666666667rem; }
+        margin-bottom: 0.2666666667rem;
+        text-align: center;
+        border: 1px solid #C5CAD4; }
       body .scheduling .play div.like, body .scheduling-end .play div.like {
         background: url("../img/right.png");
         background-size: 100%; }
       body .scheduling .play div.unlike, body .scheduling-end .play div.unlike {
+        font-size: 0.32rem;
+        color: #F5594E;
+        line-height: 0.96rem;
+        text-align: center;
         background: url("../img/error.png");
         background-size: 100%; }
     body .scheduling .golf, body .scheduling-end .golf {
@@ -497,11 +515,89 @@ body {
     width: 0.48rem;
     height: 0.48rem; }
   body .made {
-    width: 100%;
-    height: 100%;
-    background: url("../img/page-1-5.png") 100% center;
-    background-size: 100% 100%;
     position: relative; }
+    body .made .journey-head {
+      width: 100%;
+      height: 1.7066666667rem;
+      background-image: url("../img/journey-head.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat; }
+    body .made .journey-input {
+      height: 1.4666666667rem;
+      background-color: #fff;
+      padding: 0 0.4rem; }
+      body .made .journey-input span {
+        float: left;
+        line-height: 1.4666666667rem;
+        font-size: 0.4266666667rem;
+        color: #111E36; }
+      body .made .journey-input input {
+        float: left;
+        margin-left: 0.8rem;
+        height: 1.4133333333rem;
+        line-height: 1.4133333333rem;
+        width: 6.5333333333rem;
+        border: none;
+        outline: none;
+        font-size: 0.4266666667rem;
+        color: #111E36; }
+    body .made .journey-list {
+      margin-top: 0.4rem; }
+      body .made .journey-list li {
+        width: 9.2rem;
+        height: 1.8133333333rem;
+        box-shadow: 0 4px 6px 0 rgba(27, 27, 27, 0.05);
+        border-radius: 2px;
+        background-color: #fff;
+        margin: 0 auto 0.4rem auto;
+        box-sizing: border-box;
+        padding-left: 1.28rem;
+        padding-top: 0.32rem;
+        padding-bottom: 0.32rem;
+        background-image: url("../img/drag-icon.png");
+        background-repeat: no-repeat;
+        background-size: 0.48rem 0.48rem;
+        background-position: 0.4rem center; }
+        body .made .journey-list li .journey-item-detail {
+          float: left;
+          width: 4.7466666667rem; }
+          body .made .journey-list li .journey-item-detail > div:first-of-type {
+            font-size: 0.4533333333rem;
+            color: #111E36; }
+          body .made .journey-list li .journey-item-detail > div:last-of-type {
+            font-size: 0.32rem;
+            color: #7E8DA6;
+            margin-top: 0.08rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden; }
+        body .made .journey-list li .journey-item-edit {
+          float: left;
+          width: 0.48rem;
+          height: 100%;
+          margin-left: 0.8rem;
+          background-image: url("../img/edit-icon.png");
+          background-repeat: no-repeat;
+          background-size: 0.48rem 0.48rem;
+          background-position: center center; }
+        body .made .journey-list li .journey-item-delete {
+          float: left;
+          width: 0.48rem;
+          height: 100%;
+          margin-left: 0.8rem;
+          background-image: url("../img/delete-icon.png");
+          background-repeat: no-repeat;
+          background-size: 0.48rem 0.48rem;
+          background-position: center center; }
+    body .made .journey-foot {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.3333333333rem;
+      background-image: url("../img/journey-footer.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat; }
     body .made .edit {
       position: absolute;
       top: 4.1066666667rem;
@@ -514,12 +610,6 @@ body {
       right: 0.8rem;
       width: 0.48rem;
       height: 0.48rem; }
-    body .made .finish-all {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1.3333333333rem; }
   body .my-scheduling {
     width: 100%;
     height: 24.9866666667rem;
@@ -616,5 +706,11 @@ body {
     background: url("../img/finish.png") 100% center;
     background-size: 100% 100%;
     position: relative; }
+  body .finish-all {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.3333333333rem; }
 
 /*# sourceMappingURL=index.css.map */

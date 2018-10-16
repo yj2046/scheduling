@@ -1,43 +1,3 @@
-Vue.directive("longtouch", function(el, binding) {
-    var oDiv = el,
-        value = binding.value,
-        x = 0,
-        y = 0,
-        z = 0,
-        timer = null;
-    oDiv.addEventListener("touchstart", function(e) {
-        if (e.touches.length > 1) {
-            return false;
-        }
-        z = 0;
-        timer = setTimeout(function() {
-            z = 1;
-        }, 500);
-        x = e.touches[0].clientX;
-        y = e.touches[0].clientY;
-        e.preventDefault();
-    }, false);
-    document.addEventListener("touchmove", function(e) {
-        if (x != e.touches[0].clientX || y != e.touches[0].clientY) {
-            clearTimeout(timer);
-            return false;
-        }
-    }, false);
-    document.addEventListener("touchend", function(ev) {
-        if (z != 1) {
-            clearTimeout(timer);
-            x = 0;
-            y = 0;
-            return false;
-        } else {
-            x = 0;
-            y = 0;
-            z = 0;
-            alert("长按了啊")
-        }
-    }, false);
-})
-
 var app = new Vue({
     el:"#app",
     data:{
@@ -58,21 +18,26 @@ var app = new Vue({
             {name:"滑雪",status:0},
             {name:"冲浪",status:0},
             {name:"游学",status:0},
-            {name:"赏花",status:0},
-            {name:"骑行",status:0},
-            {name:"高尔夫",status:0},
-            {name:"踏青",status:0},
-            {name:"登山",status:0},
-            {name:"漂流",status:0},
+            {name:"温泉",status:0},
             {name:"滑雪",status:0},
-            {name:"冲浪",status:0},
-            {name:"游学",status:0}
-
+            {name:"购物",status:0},
+            {name:"美食",status:0},
+            {name:"常态",status:0},
+            {name:"自驾",status:0},
+            {name:"摄影",status:0}
         ],
         pageShow:0,
         destationSelected: false,
         timeSelected: false,
         num: 0,
+        tempTitle: '北京五日游',
+        journeyList: [
+            '天安门广场-前门大街-故宫博物院',
+            '天坛-雍和宫-孔庙和国子监-簋街',
+            '恭王府-什刹海- 南锣鼓巷-什刹海',
+            '八达岭长城-明十三陵',
+            '无行程安排'
+        ]
 
     },
     created:function () {
@@ -169,7 +134,9 @@ var app = new Vue({
                 }
             }
             return result;
+        },
+        deleteJourney: function (index) {
+            this.journeyList.splice(index, 1);
         }
-
     }
 });

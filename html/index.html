@@ -36,15 +36,15 @@
         <div class="scheduling" v-if="pageShow==1">
             <img src="../img/destation-selectd.png" class="destation-selected" v-if="destationSelected">
             <img src="../img/time-selectd.png" class="time-selected" v-if="timeSelected">
-            <div class="destination-btn" @click="pageShow=11"></div>
-            <div class="time-btn" @click="pageShow=12"></div>
+            <div class="destination-btn" @click="selectDestation"></div>
+            <div class="time-btn" @click="selectTime"></div>
             <div class="next-btn" @click="pageShow=2"></div>
             <div class="close" @click="pageShow=0"></div>
             <ul class="play">
                 <li v-for="play in playList" class="play-item">
-                    <div v-if="play.status==0" @click="triggerClick($event,play)"></div>
-                    <div v-if="play.status==1" class="like" @click="play.status=0"></div>
-                    <div v-if="play.status==2" class="unlike" @click="play.status=0"></div>
+                    <div v-if="play.status==0" @click="triggerClick($event,play)">{{play.name}}</div>
+                    <div v-if="play.status==1" class="like" @click="play.status=0">{{play.name}}</div>
+                    <div v-if="play.status==2" class="unlike" @click="play.status=0">{{play.name}}</div>
                 </li>
 
 
@@ -68,17 +68,29 @@
         <!--行程列表-->
         <div class="made" v-if="pageShow==2">
             <div class="close" @click="pageShow=1"></div>
-            <div class="edit" @click="pageShow=3"></div>
-            <div class="delete"></div>
-            <div class="finish-all" @click="pageShow=8"></div>
-
-            <draggable element="ul" :list="dayList" :options="{animation:100,forceFallback:true, scroll: true,scrollSensitivity:100}">
+            <!-- <draggable element="ul" :list="dayList" :options="{animation:100,forceFallback:true, scroll: true,scrollSensitivity:100}" class="journey-list">
                 <li v-for="(day,index) in dayList" @end="onEnd(day,index)">
                    第{{translateNumber(index+1)}}天
                     {{day.text}}
 
                 </li>
+            </draggable> -->
+            <div class="journey-head"></div>
+            <div class="journey-input">
+                <span>输入标题</span>
+                <input type="text" v-model="tempTitle">
+            </div>
+            <draggable element="ul" :list="journeyList" :options="{animation:100,forceFallback:true, scroll: true,scrollSensitivity:100}" class="journey-list">
+                <li class="clearfix" v-for="(item, index) in journeyList">
+                    <div class="journey-item-detail">
+                        <div>第{{translateNumber(index+1)}}天</div>
+                        <div>{{item}}</div>
+                    </div>
+                    <span class="journey-item-edit" @click="pageShow=3"></span>
+                    <span class="journey-item-delete" @click="deleteJourney(index)"></span>
+                </li>
             </draggable>
+            <div class="journey-foot" @click="pageShow=8"></div>
         </div>
         <!--行程编辑-->
         <div class="my-scheduling" v-if="pageShow==3">
@@ -88,6 +100,7 @@
             <div class="add-viewspot" @click="pageShow=5"></div>
             <div class="add-returnhotel" @click="pageShow=4"></div>
             <div class="more-plan" @click="pageShow=6"></div>
+            <div class="finish-all" @click="pageShow=2"></div>
         </div>
         <!--添加酒店-->
         <div class="hotel-list" v-if="pageShow==4">
