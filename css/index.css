@@ -392,7 +392,9 @@ body {
       position: absolute;
       top: 8rem;
       left: 1.3333333333rem;
-      background: red; }
+      background: red;
+      width: 2.6666666667rem;
+      height: 2.6666666667rem; }
   body .scheduling .next-btn {
     background-image: url("../img/footer.png");
     background-repeat: no-repeat;
