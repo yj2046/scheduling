@@ -69,7 +69,7 @@ var app = new Vue({
             {name:"游学",status:0}
 
         ],
-        pageShow:1,
+        pageShow:0,
         destationSelected: false,
         timeSelected: false,
         num: 0,
