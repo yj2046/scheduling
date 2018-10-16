@@ -62,15 +62,15 @@ body{
     }
     .destation-selected {
       position: absolute;
-      top: torem(66);
-      left: 0;
-      width: 100%;
+      top: torem(61);
+      right: 0;
+      height: torem(50);
     }
     .time-selected {
       position: absolute;
-      top: torem(118);
-      left: 0;
-      width: 100%;
+      top: torem(110);
+      right: 0;
+      height: torem(50);
     }
     .time-btn{
       position: absolute;
