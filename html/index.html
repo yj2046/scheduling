@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="referrer" content="no-referrer">
+    <title>汽车之家旅行家-陪你看世界</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+
+    </style>
+    <script>
+        var cwidth = document.documentElement.clientWidth;
+        var cheight = document.documentElement.clientHeight;
+        var rate = (cheight/cwidth)*100;
+        document.getElementsByTagName("html")[0].style.fontSize=cwidth/10+'px';
+    </script>
+</head>
+<body>
+
+    <div id="app">
+
+        <!--行程空白页-->
+        <div class="scheduling" v-if="pageShow==1">
+            <img src="../img/destation-selectd.png" class="destation-selected" v-if="destationSelected">
+            <img src="../img/time-selectd.png" class="time-selected" v-if="timeSelected">
+            <div class="destination-btn" @click="pageShow=11"></div>
+            <div class="time-btn" @click="pageShow=12"></div>
+            <div class="next-btn" @click="pageShow=2"></div>
+            <ul class="play">
+                <li v-for="play in playList" class="play-item">
+                    <div v-if="play.status==0" @click="triggerClick($event,play)"></div>
+                    <div v-if="play.status==1" class="like" @click="play.status=0"></div>
+                    <div v-if="play.status==2" class="unlike" @click="play.status=0"></div>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="destination" v-if="pageShow==11">
+            <div class="beijing" @click="selectDestation"></div>
+            <div class="close" @click="closeDestation"></div>
+        </div>
+        <div class="start-time" v-if="pageShow==12">
+            <div class="close" @click="closeDestation"></div>
+            <div class="finish" @click="selectTime"></div>
+        </div>
+        <!--行程信息已填写-->
+        <div class="scheduling-end" v-if="pageShow==13">
+            <div class="destination-btn" @click="pageShow=11"></div>
+            <div class="time-btn" @click="pageShow=12"></div>
+            <div class="next-btn" @click="pageShow=2"></div>
+        </div>
+
+        <!--行程列表-->
+        <div class="made" v-if="pageShow==2">
+            <div class="close" @click="pageShow=1"></div>
+            <div class="edit" @click="pageShow=3"></div>
+            <div class="delete"></div>
+        </div>
+        <!--行程编辑-->
+        <div class="my-scheduling" v-if="pageShow==3">
+
+            <div class="close" @click="pageShow=2"></div>
+            <div class="add-hotel" @click="pageShow=4"></div>
+            <div class="add-viewspot" @click="pageShow=5"></div>
+            <div class="add-returnhotel" @click="pageShow=4"></div>
+            <div class="more-plan" @click="pageShow=6"></div>
+        </div>
+        <!--添加酒店-->
+        <div class="hotel-list" v-if="pageShow==4">
+            <div class="add-hotel-btn" @click="pageShow=3"></div>
+            <div class="cancle" @click="pageShow=3"></div>
+        </div>
+        <!--添加景点-->
+        <div class="viewspot-list" v-if="pageShow==5">
+            <div class="cancle" @click="pageShow=3"></div>
+        </div>
+        <!--更多方案：自驾-->
+        <div class="self-driving" v-if="pageShow==6">
+            <div class="bus-btn" @click="pageShow=7"></div>
+            <div class="save" @click="pageShow=3"></div>
+
+        </div>
+        <!--更多方案：公交-->
+        <div class="bus" v-if="pageShow==7">
+            <div class="self-driving-btn" @click="pageShow=6"></div>
+            <div class="save" @click="pageShow=3"></div>
+        </div>
+
+    </div>
+
+    <script src="../js/lib/vue-2.26.min.js"></script>
+    <script src="../js/lib/jquery.min.v2.1.4.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
+
+
+
+
+

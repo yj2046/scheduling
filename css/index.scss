@@ -1,0 +1,282 @@
+@import "reset";
+$blue:#1A8CED;
+@function torem($a) {
+  @return $a/37.5+rem;
+}
+html{
+  width:100%;
+  height:100%;
+  overflow-x: hidden;
+}
+body{
+  width:100%;
+  height:100%;
+  overflow-x: hidden;
+  overflow-y: scroll;;
+  #app{
+    width:100%;
+    height:100%;
+    overflow-x: hidden;
+  }
+  .scheduling .next-btn{
+      background-image: url("../img/footer.png");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-position: center center;
+    }
+  .scheduling,.scheduling-end{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-1.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .destination-btn{
+      position: absolute;
+      top:torem(76);
+      right: 0;
+      width:torem(80);
+      height:torem(20);
+    }
+    .destation-selected {
+      position: absolute;
+      top: torem(56);
+      left: 0;
+      width: 100%;
+    }
+    .time-selected {
+      position: absolute;
+      top: torem(108);
+      left: 0;
+      width: 100%;
+    }
+    .time-btn{
+      position: absolute;
+      top:torem(124);
+      right: 0;
+      width:torem(80);
+      height:torem(20);
+    }
+    .next-btn{
+      width:100%;
+      height:torem(50);
+      position: absolute;
+      left:0;
+      bottom:0;
+    }
+
+    .play{
+      position: absolute;
+      top:torem(225);
+      width:100%;
+      height:torem(174);
+      padding-left:torem(15);
+      padding-top:torem(5);
+      .play-item div{
+        float: left;
+        width:torem(79);
+        height:torem(36);
+        margin-right:torem(10);
+        margin-bottom: torem(10);
+
+      }
+      div.like{
+        background: url("../img/right.png");
+        background-size: 100%;
+      }
+      div.unlike{
+        background: url("../img/error.png");
+        background-size: 100%;
+      }
+
+    }
+
+    .flower-like{
+
+    }
+    .flower-unlike{
+
+    }
+    .golf{
+      width:torem(79);
+      height:torem(36);
+      position: absolute;
+      top: torem(238);
+      left:torem(193);
+    }
+  }
+  .scheduling-end{
+    background: url("../img/page-1-4.png") 100% center;
+    background-size:100% ;
+  }
+
+  .start-time{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-3-1.png") 100% center;
+    background-size: 100% 100%;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    .finish{
+      position: absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:torem(50);
+    }
+  }
+  .destination{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-2.png") 100% center;
+    background-size: 100% 100%;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+
+    .beijing{
+      position: absolute;
+      width:torem(79);
+      height:torem(36);
+      top:torem(118);
+      left:torem(15);
+    }
+
+  }
+
+  .close{
+    position: absolute;
+    top:torem(33);
+    left:torem(15);
+    width:torem(18);
+    height:torem(18);
+  }
+  .made {
+    width: 100%;
+    height: 100%;
+    background: url("../img/page-1-5.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .edit{
+      position: absolute;
+      top:torem(154);
+      right:torem(78);
+      width:torem(18);
+      height:torem(18);
+    }
+    .delete{
+      position: absolute;
+      top:torem(154);
+      right:torem(30);
+      width:torem(18);
+      height:torem(18);
+    }
+  }
+  .my-scheduling{
+    width:100%;
+    height:torem(937);
+    background: url("../img/page-1-6.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .add-hotel{
+      position: absolute;
+      top:torem(320);
+      left:torem(15);
+      width:torem(345);
+      height:torem(44);
+
+    }
+    .add-viewspot{
+      position: absolute;
+      top:torem(754);
+      left:torem(15);
+      width:torem(345);
+      height:torem(44);
+    }
+    .add-returnhotel{
+      position: absolute;
+      top:torem(813);
+      left:torem(15);
+      width:torem(345);
+      height:torem(44);
+    }
+    .more-plan{
+      position: absolute;
+      top:torem(454);
+      right: torem(44);
+      width:torem(40);
+      height:torem(20);
+    }
+  }
+
+  .hotel-list{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-7.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .add-hotel-btn{
+      width:torem(50);
+      height:torem(24);
+      position: absolute;
+      top:torem(193);
+      left:torem(138);
+    }
+  }
+  .viewspot-list{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-8.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .cancle{
+    position: absolute;
+    top:torem(35);
+    right:torem(15);
+    width:torem(28);
+    height:torem(14);
+  }
+  .self-driving{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-15-selfDriving.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .bus-btn{
+      position: absolute;
+      left:torem(74);
+      bottom:torem(127);
+      width:torem(28);
+      height:torem(44);
+    }
+    .save{
+      position: absolute;
+      right:torem(15);
+      bottom:torem(144);
+      width:torem(40);
+      height:torem(24);
+    }
+  }
+  .bus{
+    width:100%;
+    height:100%;
+    background: url("../img/page-1-15-bus.png") 100% center;
+    background-size: 100% 100%;
+    position: relative;
+    .self-driving-btn{
+      position: absolute;
+      left:torem(15);
+      bottom:torem(177);
+      width:torem(28);
+      height:torem(44);
+    }
+    .save{
+      position: absolute;
+      right:torem(15);
+      bottom:torem(172);
+      width:torem(40);
+      height:torem(24);
+    }
+  }
+}
